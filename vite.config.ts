@@ -9,6 +9,7 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
+      devOptions: { enabled: true },
       includeAssets: ['favicon.svg'],
       manifest: {
         name: '俄语背词 - 留学实用变格单词',
@@ -18,7 +19,8 @@ export default defineConfig({
         background_color: '#f8fafc',
         display: 'standalone',
         orientation: 'portrait',
-        start_url: '/',
+        start_url: '/russian-vocab/?v=1',
+        scope: '/russian-vocab/',
         icons: [
           {
             src: 'favicon.svg',
@@ -30,11 +32,13 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,svg,png,json,woff2}'],
-        maximumFileSizeToCacheInBytes: 10 * 1024 * 1024, // 10MB for wordBank.json
+        maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
+        skipWaiting: true,
+        clientsClaim: true,
         runtimeCaching: [
           {
             urlPattern: /\/wordBank\.json$/,
-            handler: 'CacheFirst',
+            handler: 'NetworkFirst',
             options: {
               cacheName: 'wordbank-cache',
               expiration: { maxEntries: 5, maxAgeSeconds: 30 * 86400 },

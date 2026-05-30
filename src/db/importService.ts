@@ -3,7 +3,8 @@ import { db, type WordData, type WordBook, getNextInterval, type LearnResult } f
 // ── Import ────────────────────────────────────────────
 
 export async function loadWordBank(): Promise<WordData[]> {
-  const resp = await fetch('/wordBank.json')
+  const path = import.meta.env.BASE_URL + 'wordBank.json'
+  const resp = await fetch(path)
   if (!resp.ok) throw new Error(`HTTP ${resp.status}`)
   return resp.json()
 }
