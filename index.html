@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
+    <meta name="theme-color" content="#1e293b" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="俄语背词" />
+    <title>俄语背词</title>
+  </head>
+  <body class="bg-slate-50 text-slate-800 antialiased">
+    <div id="root"><p style="padding:40px;text-align:center;color:#94a3b8;">加载中…</p></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      window.onerror = function(msg, url, line, col, err) {
+        document.getElementById('root').innerHTML =
+          '<div style="padding:40px;text-align:center;font-family:sans-serif;">'+
+          '<h2 style="color:#ef4444;">JS错误</h2>'+
+          '<p style="color:#64748b;word-break:break-all;max-width:90%;margin:16px auto;">'+msg+'</p>'+
+          '<pre style="background:#f1f5f9;padding:12px;border-radius:8px;font-size:12px;color:#475569;max-width:90%;margin:0 auto;overflow:auto;">'+(err&&err.stack?err.stack.slice(0,600):'')+'</pre>'+
+          '</div>';
+      }
+    </script>
+  </body>
+</html>

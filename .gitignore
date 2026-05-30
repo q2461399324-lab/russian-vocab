@@ -1,0 +1,7 @@
+node_modules/
+dist/
+raw_*.csv
+freq_*.txt
+freq_*.csv
+.DS_Store
+*.log
