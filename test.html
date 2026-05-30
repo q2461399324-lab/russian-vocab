@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test</title>
+  <style>
+    body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background: #f0f4ff; }
+    .card { background: white; padding: 40px; border-radius: 20px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+    .ok { color: #10b981; font-size: 48px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="ok">✅</div>
+    <h1>基础环境正常</h1>
+    <p style="color: #64748b;">如果你能看到这个页面，说明网络没问题</p>
+    <p style="color: #94a3b8; font-size: 14px;" id="info"></p>
+  </div>
+  <script>
+    document.getElementById('info').textContent =
+      'UserAgent: ' + navigator.userAgent.split(' ').slice(-2).join(' ') +
+      ' | Time: ' + new Date().toLocaleTimeString();
+  </script>
+</body>
+</html>
